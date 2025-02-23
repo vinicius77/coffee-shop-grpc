@@ -4,7 +4,7 @@ package coffeeshop;
 option go_package = "github.com/vinicius77/coffee-shop-grpc";
 
 service CoffeeShop {
-  rpc GetMenu(MenuRequest) returns (stream Menu) {};
+  rpc GetMenu(MenuRequest) returns (stream Menu) {}; 
   rpc PlaceOrder(Order) returns (Receipt) {};
   rpc GetOrderStatus(Receipt) returns (OrderStatus);
 }
