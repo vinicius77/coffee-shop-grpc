@@ -1,0 +1,33 @@
+syntax = "proto3";
+package coffeeshop;
+
+option go_package = "github.com/vinicius77/coffee-shop-grpc";
+
+service CoffeeShop {
+  rpc GetMenu(MenuRequest) returns (stream Menu) {};
+  rpc PlaceOrder(Order) returns (Receipt) {};
+  rpc GetOrderStatus(Receipt) returns (OrderStatus);
+}
+
+message Item {
+  string itemId = 1;
+  string name = 2;
+}
+message MenuRequest {} 
+
+message Menu {
+  repeated Item items = 1;
+}
+
+message Order {
+  repeated Item items = 1;
+}
+
+message Receipt {
+  string receiptId = 1;
+}
+
+message OrderStatus {
+  string orderId = 1;
+  string status = 2;
+}
